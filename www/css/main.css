@@ -1,0 +1,67 @@
+body h1{
+	text-align: center;
+	color: #088A08;
+	font-size: 2.916666666666667em;
+}
+
+
+html{
+    background: url("file:///C:/xampp/htdocs/Background%205.png") no-repeat center center fixed;
+}
+
+.submit{
+	font-size: 20px;
+	text-align: center;
+	border-style: solid;
+	border-width: 5px;
+
+}
+
+form{
+	text-align: center;
+}
+
+ul{
+	list-style: none;
+}
+
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+.Buttons{
+	font-size: 40px
+
+}
+
+.Button1{
+	float: left;
+	border: 5px solid;
+    border-radius: 25px;
+}
+
+.Button2{
+	float: right;
+	border: 5px solid;
+    border-radius: 25px;
+}
+
+.SignUp{
+	border-bottom: 5px solid black;
+}
+
+.submit1{
+	border: 5px solid;
+	text-align: center;
+	font-size: 30px;
+	width: 100px;
+	margin: auto;
+	border-radius: 25px;
+	margin-top: 5px;
+	background: #BBBBBB;
+}
