@@ -6,7 +6,7 @@ body h1{
 
 
 html{
-    background: url("file:///C:/xampp/htdocs/Background%205.png") no-repeat center center fixed;
+    background: url("img/Background.png") no-repeat center center fixed;
 }
 
 .submit{
@@ -65,3 +65,8 @@ a:visited {
 	margin-top: 5px;
 	background: #BBBBBB;
 }
+
+td{
+    text-align:right;
+}
+
