@@ -6,7 +6,11 @@ body h1{
 
 
 body{
-    background-image: url("http://upload.wikimedia.org/wikipedia/commons/e/ed/Chandra_image_of_Sgr_A.jpg");
+    background: url("http://upload.wikimedia.org/wikipedia/commons/e/ed/Chandra_image_of_Sgr_A.jpg") no-repeat center center fixed;
+ 	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }
 
 .submit{
