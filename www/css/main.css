@@ -6,7 +6,7 @@ body h1{
 
 
 body{
-    background: url("img/Background.png") no-repeat center center fixed;
+    background-image: url("http://upload.wikimedia.org/wikipedia/commons/e/ed/Chandra_image_of_Sgr_A.jpg");
 }
 
 .submit{
@@ -43,12 +43,14 @@ a:visited {
 	float: left;
 	border: 5px solid;
     border-radius: 25px;
+    background: #BBBBBB;
 }
 
 .Button2{
 	float: right;
 	border: 5px solid;
     border-radius: 25px;
+    background: #BBBBBB;
 }
 
 .SignUp{
