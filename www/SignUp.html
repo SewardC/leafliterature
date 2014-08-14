@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Sign Up</title>
-		<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
-		<link rel="stylesheet" type="text/css" href="css/main.css"> 
-	</head>
-	<body>
-		<h1 class="SignUp">Welcome To LeafLit</h1>
+<head>
+	<title>Sign Up</title>
+	<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
+	<link rel="stylesheet" type="text/css" href="css/main.css"> 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+</head>
+<body>
+	<h1 class="SignUp">Welcome To LeafLit</h1>
+	<form id="signUpForm" method="post" >
 		<table>
 
-    		<tr><td>UserName:</td><td><input type="text"/></td></tr>
+			<tr><td>UserName:</td><td><input type="text" name="username" id="username" required></td></tr>
 
-    		<tr><td>Password:</td><td><input type="text"/></td></tr>
+			<tr><td>Password:</td><td><input type="password" name="password" id="password" required></td></tr>
 
-    		<tr><td>Re-type Password:</td><td><input type="text"/></td></tr>
+			<tr><td>Re-type Password:</td><td><input type="password" name="repassword" id="repassword" required></td></tr>
 
-    		<tr><td>E-mail:</td><td><input type="text"/></td></tr>
+			<tr><td>E-mail:</td><td><input type="email" name="email" id="email" required></td></tr>
 
 		</table>
-		<a href="HomePage.html"><p class="submit1">Get Started</p></a>
-		
+		<input type="submit" value="Get Started!" id="button">
+	</form>
+	<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 
+	<script>
+	$(document).ready(function(){
+		var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+		var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+		Parse.initialize(parseAPPID, parseJSID);
 
+		$('#signUpForm').on('submit', function(e){
+			e.preventDefault();
+			var data = {};
+			data.username = $('#username').val();
+			data.password = $('#password').val();
+			data.email = $('#email').val();
+			
+			var user = new Parse.User();
+			user.set("username", data.username);
+			user.set("password", data.password);
+			user.set("email", data.email);
 
+			user.signUp(null, {
+				success: function(user) {
+			    // Hooray! Let them use the app now.
+			    location.href = "HomePage.html";
+				},
+				error: function(user, error) {
+				    // Show the error message somewhere and let the user try again.
+				    alert("Error: " + error.code + " " + error.message);
+				}
+			});
+		});
 
-
-
-
-
-
-
-
-
-
-
-	</body>
+	});
+	</script>
+</body>
 </html>
