@@ -21,7 +21,7 @@
 			success: function(results){
 				for(var i = 0; i < results.length; i++){
 					var object = results[i];
-					$('body').append('<div class = "Story1"><h1>'+ object.get('Title') + '</h1><p>'+object.get("Essay")+'</p><h9>'+object.get("Username")+'</h9></div>');
+					$('body').append('<div class = "Story1"><h1>'+ object.get('Title') + '</h1><p>'+object.get("Essay").substr(0,125)+ '...' +'</p><h9>'+object.get("Username")+'</h9></div>');
 				}
 			},
 			error: function(error) {
@@ -29,22 +29,12 @@
 			}
 		});
 		</script>
-
-		<form action="" method="post"> 
-    		<input type="hidden" value="'.$_SESSION['loginid'].'" name="uid">  
-
-	    <div class="addacomment"><label for="title">Add a comment:</label></div> 
-    	<div class="submissionfield"><input name="title" type="title" id="title" maxlength="1000"></div>  
-
-    	<div class="submissionbutton"><input name="submit" type="submit" value="Submit"></div> 
-		</form>
-
+		<ul class = "TopBar">
+  			<li class = "TopBar_Content"><a href="Homepage.html">Home</a></li>
+  			<li class = "TopBar_Content"><a href="Profile_Page.html">Profile</a></li>
+  			<li class ="TopBar_Content"><a href="Contacts.html">Contact</a></li>
+  			<li class = "TopBar_Content"><a href="about.asp">About</a></li>
+  			<li class = "TopBar_Content"><a href="Settings.html">Settings</a></li>
+		</ul>
 	</body>
-
-	
-
-
-
-
-
 </html>
