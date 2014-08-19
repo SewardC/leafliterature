@@ -7,10 +7,7 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	</head>
 	<body>
-		<video width="320" height="240" controls>
-  			<source src="videos/LeaflitAd.mp4" type="video/mp4">
-		</video>
-	
+
 		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 
 		<script>
@@ -31,10 +28,16 @@
 				alert("Error");
 			}
 		});
-
-
-
 		</script>
+
+		<form action="" method="post"> 
+    		<input type="hidden" value="'.$_SESSION['loginid'].'" name="uid">  
+
+	    <div class="addacomment"><label for="title">Add a comment:</label></div> 
+    	<div class="submissionfield"><input name="title" type="title" id="title" maxlength="1000"></div>  
+
+    	<div class="submissionbutton"><input name="submit" type="submit" value="Submit"></div> 
+		</form>
 
 	</body>
 
