@@ -7,11 +7,13 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	</head>
 	<body>
-		<div>
-			<img src="img/Star.jpg"/>
-			<img src="img/LikeIcon.PNG"/>
-			<img src="img/FavoriteIcon.PNG"/>
-		</div>
+		<ul class = "TopBar">
+  			<li class = "TopBar_Content"><a href="HomePage.html">Home</a></li>
+  			<li class = "TopBar_Content"><a href="Profile_Page.html">Profile</a></li>
+  			<li class ="TopBar_Content"><a href="Contacts.html">Contact</a></li>
+  			<li class = "TopBar_Content"><a href="about.asp">About</a></li>
+  			<li class = "TopBar_Content"><a href="Settings.html">Settings</a></li>
+		</ul>
 		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 
 		<script>
@@ -25,24 +27,15 @@
 			success: function(results){
 				for(var i = 0; i < results.length; i++){
 					var object = results[i];
-					$('body').append('<div class = "Story1"><h1>'+ object.get('Title') + '</h1><p>'+object.get("Essay")+'</p><h9>'+object.get("Username")+'</h9></div>');
+					var username = object.get("Username");
+					$('body').append('<div class = "Story1"><h1><a href="content.html?username='+ username +'&article_id='+object.id+ '">'+ object.get('Title') + '</a></h1><p>'+object.get("Essay").substr(0,125)+ '...' +'</p><h9>'+username+'</h9></div>');
 				}
 			},
 			error: function(error) {
 				alert("Error");
 			}
 		});
-
-
-
 		</script>
-
+		
 	</body>
-
-	
-
-
-
-
-
 </html>
