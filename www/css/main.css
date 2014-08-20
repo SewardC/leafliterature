@@ -4,7 +4,6 @@ body h1{
 	font-size: 2.916666666666667em;
 }
 
-
 body{
     background: #00FFFF;
 }
@@ -139,4 +138,39 @@ div h9 {
 
 .Erik_Info_Info{
 	font-size: 20px;
+}
+.Settings_Table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
+  border: 10px solid white;
+  background: grey;
+}
+.Settings_Table_Row{
+	border:10px solid white;
+}
+.Settings_Table_Data {
+  border: 1px solid #000;
+  width: 100px;
+  font-size: 30px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.Title_Settings_Class{
+	font-size: 50px;
+	font-family: bold;
+	text-align: center;
+}
+
+.Title_Settings_Border{
+	text-align: center;
+	margin-top: -50px;
+}
+
+.Second_Title_Settings_Border{
+	text-align: center;
+	margin-top: -30px;
 }
