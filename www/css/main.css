@@ -27,8 +27,18 @@ a:visited {
     text-decoration: none;
 }
 
+.First_Page_Title{
+	padding-top: 45%;
+}
+
+.First_Page_Logo{
+	position: absolute;
+	left: 29.5%;
+	top:5%;
+}
+
 .Buttons{
-	font-size: 40px
+	font-size: 1.875em;
 
 }
 
@@ -48,7 +58,7 @@ a:visited {
     background: #BBBBBB;
     font-size: 1em;
     padding-left: 1%;
-    margin-left: 80%;
+    margin-left: 30%;
 }
 
 .SignUp{
@@ -61,7 +71,7 @@ a:visited {
 	text-align: right;
 	background-color: #7FFFD4;
 	font-size: 1.250em;
-	margin-left: 95.5%;
+	margin-left: 80%;
 }
 
 .submit1{
@@ -185,7 +195,7 @@ div h9 {
 
 .Login_App_img{
 	position: absolute;
-	left :46%;
+	left :30%;
 	top: 15%;
 	border-radius: 10px;
 
@@ -196,8 +206,3 @@ div h9 {
 	font-size: 3.125em;
 }
 
-.First_Page_Logo{
-	position: absolute;
-	left: 46%;
-	top:15%;
-}
