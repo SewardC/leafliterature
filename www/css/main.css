@@ -206,3 +206,11 @@ div h9 {
 	font-size: 3.125em;
 }
 
+.Profile_img{
+	border: 3px solid blue;
+}
+.Profile_Name{
+	font-size: 25px;
+	color:blue;
+	text-align: left;
+}
