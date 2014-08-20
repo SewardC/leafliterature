@@ -8,16 +8,6 @@ body{
     background: #00FFFF;
 }
 
-.submit{
-	font-size: 20px;
-	text-align: center;
-	border-style: solid;
-	border-width: 5px;
-	border-radius: 5px;
-	margin-right: 650px;
-	margin-left:650px;
-}
-
 form{
 	text-align: center;
 	font-size: 30px;
@@ -37,8 +27,18 @@ a:visited {
     text-decoration: none;
 }
 
+.First_Page_Title{
+	padding-top: 45%;
+}
+
+.First_Page_Logo{
+	position: absolute;
+	left: 29.5%;
+	top:5%;
+}
+
 .Buttons{
-	font-size: 40px
+	font-size: 1.875em;
 
 }
 
@@ -47,17 +47,31 @@ a:visited {
 	border: 5px solid;
     border-radius: 25px;
     background: #BBBBBB;
+    font-size: 1em;
+    padding-right:1%;
 }
 
 .Button2{
-	float: right;
+	float: left;
 	border: 5px solid;
     border-radius: 25px;
     background: #BBBBBB;
+    font-size: 1em;
+    padding-left: 1%;
+    margin-left: 30%;
 }
 
 .SignUp{
 	border-bottom: 5px solid black;
+}
+
+.signup{
+	border: 1px solid;
+	border-radius: 10px;
+	text-align: right;
+	background-color: #7FFFD4;
+	font-size: 1.250em;
+	margin-left: 75%;
 }
 
 .submit1{
@@ -117,7 +131,7 @@ div h9 {
 	border-bottom: 5px dashed;
 }
 
-.Seward_Chen{
+.People{
 	font-size: 25px;
 	text-align: center;
 }
@@ -146,7 +160,7 @@ div h9 {
 .Settings_Table {
   table-layout: fixed;
   border-collapse: collapse;
-  width: 50%;
+  width: 70%;
   margin: auto;
   margin-top: 50px;
   border: 10px solid white;
@@ -159,7 +173,7 @@ div h9 {
   border: 1px solid #000;
   width: 100px;
   font-size: 30px;
-  padding: 25px;
+  padding: 30px;
   text-align: center;
 }
 
@@ -179,9 +193,17 @@ div h9 {
 	margin-top: -30px;
 }
 
-.content .login .error {
-    border: 1px solid red;
-    background: #FDEFF0;
-    padding: 5px 15px;
-    margin-bottom: 15px;
+
+.Login_App_img{
+	position: absolute;
+	left :30%;
+	top: 15%;
+	border-radius: 10px;
+
 }
+
+.Login_Title{
+	padding-top: 300px;
+	font-size: 3.125em;
+}
+
