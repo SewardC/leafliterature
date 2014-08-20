@@ -4,19 +4,43 @@
 			<title>Login Page</title>
 			<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
 			<link rel="stylesheet" type="text/css" href="css/main.css"> 
+			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		</head>
 		<body>
 			<h1>Login</h1>
-			<form>
-			Username: <input type="text" name="username"><br>
-			Password: <input type="text" name="password">
+			<form id="loginForm" method="post">
+				Username: <input type="text" name="username" id="username" required><br>
+				Password: <input type="text" name="password" id="password" required>
+				<input type="submit" value="Sign In"></script>
+
 			</form>
-			<a href="HomePage.html"><p class = "submit" >Submit</p></a>
-			<p class = "signup"><a href="SignUp.html">Sign Up</a></p>
+				<p class = "signup"><a href="SignUp.html">Sign Up</a></p>
+				<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+			<script>
+				var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+				var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+				Parse.initialize(parseAPPID, parseJSID);
+				$('#loginForm').on('submit', function(e){
+					e.preventDefault();
+					var data = {};
+					data.username = $('#username').val();
+					data.password = $('#password').val();
 
-
-
-
-
+					var user = new Parse.Object.extend("User");
+					var query = new Parse.Query(user);
+					console.log("1");
+					query.equalTo("username", data.username);
+					query.find({
+						success: function(results){
+							for(var i = 0; i < results.length; i++){
+								location.href = "HomePage.html";
+							}
+						},
+						error:function(error){
+							alert("Error");
+						}
+					});
+				});
+			</script>
 		</body>
 	</html>
