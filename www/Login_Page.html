@@ -22,14 +22,15 @@
 				Parse.initialize(parseAPPID, parseJSID);
 				$('#loginForm').on('submit', function(e){
 					e.preventDefault();
+/**
 					var data = {};
 					data.username = $('#username').val();
 					data.password = $('#password').val();
-
 					var user = new Parse.Object.extend("User");
 					var query = new Parse.Query(user);
 					console.log("1");
 					query.equalTo("username", data.username);
+					query.equalTo("password", data.password);
 					query.find({
 						success: function(results){
 							for(var i = 0; i < results.length; i++){
@@ -38,8 +39,28 @@
 						},
 						error:function(error){
 							alert("Error");
+							console.log("Can't log in");
 						}
 					});
+*/
+					var username = $('#username').val();
+					var password = $('#password').val();
+					console.log("Username: " + username + " Password: " + password);
+			        Parse.User.logIn(username, password, {
+			            success: function(user) {
+			                window.location.href="HomePage.html";
+			                //self.undelegateEvents();
+			                //delete self;
+			                alert("Sucess");
+			               // return true;
+			                },
+			            error: function(user, error) {
+			                window.location.href="Login_Page.html";
+			                alert("Error: " + error.code + " " + error.message + username + password);
+			               // return false;
+			                }
+			        });
+					console.log("3");
 				});
 			</script>
 		</body>
