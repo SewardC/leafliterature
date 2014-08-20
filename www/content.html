@@ -1,18 +1,88 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
-		<link rel="stylesheet" type="text/css" href="css/main.css"> 
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	</head>
-	<body>
-		<ul class = "TopBar">
-  			<li class = "TopBar_Content"><a href="HomePage.html">Home</a></li>
-  			<li class = "TopBar_Content"><a href="Profile_Page.html">Profile</a></li>
-  			<li class ="TopBar_Content"><a href="Contacts.html">Contact</a></li>
-  			<li class = "TopBar_Content"><a href="about.asp">About</a></li>
-  			<li class = "TopBar_Content"><a href="Settings.html">Settings</a></li>
-		</ul>	
+<head>
+	<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
+	<link rel="stylesheet" type="text/css" href="css/main.css"> 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/turn.js"></script>
+	<style type="text/css">
+			#magazine{
+			    width: 360px;
+			    height: 640px;
+			}
+			#magazine .turn-page{
+			    background-color:#ccc;
+			}
+		</style>
 
-	</body>
+</head>
+<body>
+	<ul class = "TopBar">
+		<li class = "TopBar_Content"><a href="HomePage.html">Home</a></li>
+		<li class = "TopBar_Content"><a href="Profile_Page.html">Profile</a></li>
+		<li class ="TopBar_Content"><a href="Contacts.html">Contact</a></li>
+		<li class = "TopBar_Content"><a href="about.asp">About</a></li>
+		<li class = "TopBar_Content"><a href="Settings.html">Settings</a></li>
+	</ul>
+	<div id="magazine"></div>
+</body>
+<script src="js/parse-1.2.12.min.js" type="text/javascript"></script>
+	<script>
+	var queryString = window.location.search;
+	var parseQueryString = function( queryString ) {
+	    var params = {}, queries, temp, i, l;
+	 
+	    // Split into key/value pairs
+	    queries = queryString.split("&");
+	 
+	    // Convert the array of strings into an object
+	    for ( i = 0, l = queries.length; i < l; i++ ) {
+	        temp = queries[i].split('=');
+	        params[temp[0]] = temp[1];
+	    }
+	 
+	    return params;
+	};
+
+	$(document).ready(function(){
+	var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+	var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+	Parse.initialize(parseAPPID, parseJSID);
+	var essays = Parse.Object.extend("Essays");
+	var query = new Parse.Query(essays);
+	var params = parseQueryString(queryString);
+	console.log(params);
+	query.equalTo("objectId", params.article_id);
+	query.find({
+		success: function(results){
+			for(var i =0; i < results.length; i++){
+				var object = results[i];
+				console.log(object.get('Title'));
+				var numOfEssay = object.get('Essay').length;
+				var essay = object.get('Essay');
+				var start = 0;
+				var numOfChar = 1190;
+				if(numOfEssay > 1190)
+				{
+					while(numOfEssay> 1190)
+					{
+						$('#magazine').append('<div><h1>' + object.get('Title')+ '</h1><span class="text"><p> '+ essay.substr(start, numOfChar) + '</p></span></div>');
+						numOfEssay -= 1190;
+						start+=1190;
+					}
+					$('#magazine').append('<div><h1>' + object.get('Title')+ '</h1><span class="text"><p> '+ essay.substr(start, essay.length-1) + '</p></span></div>');
+				}
+				else
+				{
+					$('#magazine').append('<div><h1>' + object.get('Title')+ '</h1><span class="text"><p> '+ essay.substr(0, numOfEssay-1) + '</p></span></div>');
+				}
+			}
+		},
+		error: function(error) {
+			alert('Error');
+		}
+	});
+	$('#magazine').turn({gradients:true, acceleration: true});
+});
+</script>
 </html>
