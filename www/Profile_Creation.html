@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
+	<link rel="stylesheet" type="text/css" href="css/main.css"> 
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	</head>
+	<body>
+		<form id="signUpForm" method="post" >
+			<table>
+				<tr><td>Favorite Genre:</td><td><input type="text" name="Fav_Genre" id="Fav_Genre"></td></tr>
+
+				<tr><td>Likes:</td><td><input type="text" name="Likes" id="Likes"></td></tr>
+
+				<tr><td>Dislikes:</td><td><input type="text" name="Dislike" id="Dislike"></td></tr>
+
+				<tr><td>About me:</td><td><textarea rows="4" cols="50" name="About_me" id="About_me" form="signUpForm"></textarea></td></tr>
+			</table>
+		<input type="submit" value="Get Started!" id="button">
+	</form>
+
+	<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+		var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+		Parse.initialize(parseAPPID, parseJSID);
+
+		$('#signUpForm').on('submit', function(e){
+			e.preventDefault();
+			
+			var currentUser = new Parse.User.current();
+
+			if (currentUser) {
+   				var data = {};
+				data.Likes = $('#Likes').val();
+				data.Fav_Genre = $('#Fav_Genre').val();
+				data.Dislikes = $('#Dislike').val();
+				data.About_me = $('#About_me').val();
+
+				currentUser.set("FavGenre", data.Fav_Genre);
+				currentUser.set("Likes", data.Likes);
+				currentUser.set("Dislikes", data.Dislikes);
+				currentUser.set("AboutMe", data.About_me);
+
+				currentUser.save(null, {
+  					success: function(user) {
+    				// Find all posts by the current user
+    					location.href = "Profile_Page.html"
+    				},
+    				error: function(user){
+    					alert("Error Saving Profile")
+    				}
+      				
+   				 });
+  			} else {
+   				 location.href = "Login_Page.html";
+			}
+
+		});
+
+	});
+	</script>
+
+
+	</body>
+
+
+
+
+</html>

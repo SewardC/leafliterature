@@ -15,9 +15,37 @@
 		</ul>
 
 		<img src="img/Seward.jpg" width="200" height="200"/ class="Profile_img">
-		<h2 class = "Profile_Name">Name: Seward Chen</h2>
-		<h2 class = "Recent_Titles">Recent Posts</h2>
-		<h12>--------------------------------------</h12>
-		<h2 class = "Recent_Posts"><a href="Homepage.html">My First Story Ever 2.</a></h2>
+		<h2 class = "Profile_Name" id="profile_name" name="profile_name"></h2>
+		<h2 class = "Profile_Name" id="likes" name="likes"></h2>
+		<h2 class = "Profile_Name" id="dislikes" name="dislikes"></h2>
+
+		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+				var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+				Parse.initialize(parseAPPID, parseJSID);
+
+				var currentUser = new Parse.User.current();			
+
+				if (currentUser) {
+					var User = Parse.Object.extend("User") 
+					var query = new Parse.Query(User)
+					query.equalTo("objectId", currentUser.id)
+
+					query.find({
+						success: function(user) {
+							$('#profile_name').text("User Name: " + user[0].get('username'));
+							$('#likes').text("Likes: " + user[0].get('Likes'));
+							$('#dislikes').text("Dislikes: " + user[0].get('Dislikes'));
+							
+						}
+					});
+					
+				} else {
+					location.href = "Login_Page.html"
+				}
+			});
+	</script>
 	</body>
 </html>
