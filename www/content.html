@@ -2,10 +2,14 @@
 <html>
 <head>
 	<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
-	<link rel="stylesheet" type="text/css" href="css/main.css"> 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-	<script type="text/javascript" src="js/turn.js"></script>
-	<style type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	<link rel-"stylesheet" type-"text/css" href="css/jquery.mobile.flip.min.css">
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<!--<script type="text/javascript" src="js/turn.js"></script> -->
+	<!--<script type="text/javascript" src="js/jquery.mobile.flip.js"></script> -->
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<!--<style type="text/css">
 			#magazine{
 			    width: 360px;
 			    height: 640px;
@@ -14,7 +18,7 @@
 			    background-color:#ccc;
 			}
 		</style>
-
+	-->
 </head>
 <body>
 	<ul class = "TopBar">
@@ -24,9 +28,10 @@
 		<li class = "TopBar_Content"><a href="about.asp">About</a></li>
 		<li class = "TopBar_Content"><a href="Settings.html">Settings</a></li>
 	</ul>
-	<div id="magazine"></div>
-</body>
-<script src="js/parse-1.2.12.min.js" type="text/javascript"></script>
+	<div id="flipRoot">
+		
+	</div>
+	<script src="js/parse-1.2.12.min.js" type="text/javascript"></script>
 	<script>
 	var queryString = window.location.search;
 	var parseQueryString = function( queryString ) {
@@ -43,46 +48,49 @@
 	 
 	    return params;
 	};
-
-	$(document).ready(function(){
-	var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
-	var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
-	Parse.initialize(parseAPPID, parseJSID);
-	var essays = Parse.Object.extend("Essays");
-	var query = new Parse.Query(essays);
-	var params = parseQueryString(queryString);
-	console.log(params);
-	query.equalTo("objectId", params.article_id);
-	query.find({
-		success: function(results){
-			for(var i =0; i < results.length; i++){
-				var object = results[i];
-				console.log(object.get('Title'));
-				var numOfEssay = object.get('Essay').length;
-				var essay = object.get('Essay');
-				var start = 0;
-				var numOfChar = 1190;
-				if(numOfEssay > 1190)
-				{
-					while(numOfEssay> 1190)
+		$(document).ready(function(){
+		var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+		var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+		Parse.initialize(parseAPPID, parseJSID);
+		var essays = Parse.Object.extend("Essays");
+		var query = new Parse.Query(essays);
+		var params = parseQueryString(queryString);
+		query.equalTo("objectId", params.article_id);
+		query.find({
+			success: function(results){
+				for(var i =0; i < results.length; i++){
+					var object = results[i];
+					console.log(object.get('Title'));
+					var numOfEssay = object.get('Essay').length;
+					var essay = object.get('Essay');
+					var start = 0;
+					var numOfChar = 1190;
+					var counter = 1;
+					if(numOfEssay > 1190)
 					{
-						$('#magazine').append('<div><h1>' + object.get('Title')+ '</h1><span class="text"><p> '+ essay.substr(start, numOfChar) + '</p></span></div>');
-						numOfEssay -= 1190;
-						start+=1190;
+						while(numOfEssay> 1190)
+						{
+							$('#flipRoot').append('<div><h1>' + object.get('Title')+ '</h1><span class="text">'+ essay.substr(start, numOfChar) + '</span></div>');
+							//$('#magazine').append('<div><span class="text">Page 1</span></div>');
+							numOfEssay -= 1190;
+							start+=1190;
+							counter++;
+						}
+						$('#filpRoot').append('<div><h1>' + object.get('Title')+ '</h1><span class="text">'+ essay.substr(start, essay.length-1) + '</span></div>');
 					}
-					$('#magazine').append('<div><h1>' + object.get('Title')+ '</h1><span class="text"><p> '+ essay.substr(start, essay.length-1) + '</p></span></div>');
+					else
+					{
+						$('#flipRoot').append('<div><h1>' + object.get('Title')+ '</h1><span class="text">'+ essay.substr(0, numOfEssay-1) + '</span></div>');
+					}
 				}
-				else
-				{
-					$('#magazine').append('<div><h1>' + object.get('Title')+ '</h1><span class="text"><p> '+ essay.substr(0, numOfEssay-1) + '</p></span></div>');
-				}
-			}
-		},
-		error: function(error) {
-			alert('Error');
-		}
-	});
-	$('#magazine').turn({gradients:true, acceleration: true});
-});
+			},
+			error: function(error) {
+				alert('Error');
+			} 
+		});
+		$("#flipRoot").flip();
+	});	
+	
 </script>
+</body>
 </html>
