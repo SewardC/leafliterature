@@ -4,10 +4,6 @@ body h1{
 	font-size: 2.916666666666667em;
 }
 
-body{
-    background-image: url("Background1.png");
-}
-
 form{
 	text-align: center;
 	font-weight: bold;
@@ -95,7 +91,7 @@ div h9 {
   width: 70%;
   margin: auto;
   margin-top: 50px;
-  border: 10px solid white;
+  border: 10px solid green;
   background: grey;
 }
 .Settings_Table_Row{
@@ -140,11 +136,11 @@ div h9 {
 }
 
 .Profile_img{
-	border: 3px solid blue;
+	border: 3px solid green;
 }
 .Profile_Name{
 	font-size: 25px;
-	color:blue;
+	color:green;
 	text-align: left;
 }
 
@@ -152,12 +148,14 @@ a {
 	color: #5C755E; text-decoration: none; 
 } 
 a:visited { 
-	color: #000;
+	color: #7ABA7A;
  } 
 a:hover { 
-	color:#000080; 
+	color:#3A5F0B; 
 }
 
-.index{
-	background-image: url("Background5.png") 
-}
+body{
+	background:linear-gradient(#005A04, #CCFFBB);
+	background-repeat: no-repeat;
+	background-size: contain;
+}	
