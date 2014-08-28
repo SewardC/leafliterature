@@ -35,7 +35,7 @@
 				for(var i = 0; i < results.length; i++){
 					var object = results[i];
 					var username = object.get("Username");
-					$('body').append('<div class = "Story1"><h1><a href="content.html?username='+ username +'&article_id='+object.id+ '">'+ object.get('Title') + '</a></h1><p>'+object.get("Essay").substr(0,125)+ '...' +'</p><h9>'+username+'</h9></div>');
+					$('body').append('<div class = "Story1"><h1><a href="content.html?username='+ username +'&article_id='+object.id+ '">'+ object.get('Title') + '</a></h1><p>'+object.get("Essay").substr(0,200)+ '...' +'</p><h9>'+username+'</h9></div>');
 				}
 			},
 			error: function(error) {
