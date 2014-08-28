@@ -1,6 +1,6 @@
 body h1{
 	text-align: center;
-	color: #088A08;
+	color: #5C755E;
 	font-size: 2.916666666666667em;
 }
 
@@ -10,14 +10,8 @@ body{
 
 form{
 	text-align: center;
-	font-size: 30px;
 	font-weight: bold;
 }
-
-ul{
-	list-style: none;
-}
-
 
 a:link {
     text-decoration: none;
@@ -27,71 +21,9 @@ a:visited {
     text-decoration: none;
 }
 
-.First_Page_Title{
-	padding-top: 45%;
-}
-
-.First_Page_Logo{
-	position: absolute;
-	left: 29.5%;
-	top:5%;
-}
-
-.Buttons{
-	font-size: 1.875em;
-
-}
-
-.Button1{
-	float: left;
-	border: 5px solid;
-    border-radius: 25px;
-    background: #BBBBBB;
-    font-size: 1em;
-    padding-right:1%;
-}
-
-.Button2{
-	float: left;
-	border: 5px solid;
-    border-radius: 25px;
-    background: #BBBBBB;
-    font-size: 1em;
-    padding-left: 1%;
-    margin-left: 30%;
-}
-
-.SignUp{
-	border-bottom: 5.1px solid black;
-}
-
-.signup{
-	border: 1px solid;
-	border-radius: 10px;
-	text-align: right;
-	background-color: #7FFFD4;
-	font-size: 1.250em;
-	margin-left: 75%;
-}
-
-.submit1{
-	border: 5px solid;
-	text-align: center;
-	font-size: 30px;
-	width: 100px;
-	margin: auto;
-	border-radius: 25px;
-	margin-top: 5px;
-	background: #BBBBBB;
-}
-
-td{
-    text-align:left;
-}
-
 .Story1{
-	border-top: 3px solid black;
-	border-bottom: 3px solid black
+	border-top: 3px solid #5C755E;
+	border-bottom: 3px solid #5C755E;
 }
 div h9 {
 	font-size: 30px;
@@ -117,7 +49,7 @@ div h9 {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background: #7FFFD4;
+    background: #A97D5D;
 }
 
 .TopBar_Content{
@@ -140,7 +72,7 @@ div h9 {
 	list-style-type: none;
     margin: 0;
     padding: 0;
-    background: #7FFFD4;
+    background: #A97D5D;
 }
 
 .Seward_Info_Info{
@@ -151,7 +83,7 @@ div h9 {
 	list-style-type: none;
     margin: 0;
     padding: 0;
-    background: #7FFFD4;
+    background: #A97D5D;
 }
 
 .Erik_Info_Info{
@@ -214,4 +146,18 @@ div h9 {
 	font-size: 25px;
 	color:blue;
 	text-align: left;
+}
+
+a { 
+	color: #5C755E; text-decoration: none; 
+} 
+a:visited { 
+	color: #5C755E;
+ } 
+a:hover { 
+	text-decoration: underline; 
+}
+
+.index{
+	background-image: url("Background5.png") 
 }
