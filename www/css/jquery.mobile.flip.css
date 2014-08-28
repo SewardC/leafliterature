@@ -106,14 +106,14 @@
 /* pager */
 .flipContainer .pager {
   text-align:center;
-  height: 24px;
+  height: 100px;
   line-height: 6px;
   position: absolute;
   bottom: 0px;
   width: 100%;
   cursor: pointer;
   font-size: 6px;
-  overflow: hidden;
+  
 }
 
 .flipContainer .pager span.dot {
@@ -124,7 +124,6 @@
 .flipContainer .pager span.dot  {
   text-decoration: none;
   margin: 8px 5px;
-  background-image: url('images/pager6x6.png');
   background-repeat: no-repeat;
   background-position: 0 -6px;
 }
