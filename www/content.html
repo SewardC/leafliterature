@@ -8,13 +8,8 @@
 	<script type="text/javascript" src="js/jquery-migrate-1.0.0.js"></script>
 	<!-- <script type="text/javascript" src="js/inlineDisqussions.js"></script> -->
 	<!--<script type="text/javascript" src="js/turn.js"></script> -->
-	<link rel="stylesheet" type="text/css" href="jquery.mobile.flip.css"/>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flip.css"/>
 	<script type="text/javascript" src="js/jquery.mobile.flip.js"></script>
-	<style>
-			div{
-				background-image: -webkit-linear-gradient(#EEE,#DDD);
-  				}
-		</style>
 </head>
 <body>
 	<ul class = "TopBar">
@@ -58,16 +53,16 @@
 					var numOfEssay = object.get('Essay').length;
 					var essay = object.get('Essay');
 					var start = 0;
-					var numOfChar = 1190;
+					var numOfChar = 1200;
 					var counter = 1;
-					if(numOfEssay > 1190)
+					if(numOfEssay > 1200)
 					{
-						while(numOfEssay> 1190)
+						while(numOfEssay> 1200)
 						{
 							$('#flipRoot').append('<div class="p"><h1>' + object.get('Title')+ '</h1><span class="text">'+ essay.substr(start, numOfChar) + '</span></div>');
 							//$('#magazine').append('<div><span class="text">Page 1</span></div>');
-							numOfEssay -= 1190;
-							start+=1190;
+							numOfEssay -= 1200;
+							start+=1200;
 							counter++;
 						}
 						$('#filpRoot').append('<div class="p"><h1>' + object.get('Title')+ '</h1><span class="text">'+ essay.substr(start, essay.length-1) + '</span></div>');
@@ -78,7 +73,7 @@
 					}
 					$("#flipRoot").flip({
 						forwardDir: 'ltor' ,
-					     height: '340px' ,
+					     height: '600px' ,
 					     showpager: true ,
 					     loop: true});
 				}
