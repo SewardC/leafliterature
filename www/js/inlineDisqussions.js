@@ -51,7 +51,7 @@ var disqus_url;
       if (settings.highlighted) {
         $('<div id="disqussions_overlay"></div>').appendTo($('body'));
       }
-
+      console.log($(this));
       // Attach a discussion to each paragraph.
       $(this).each(function(i) {
         disqussionNotesHandler(i, $(this));
