@@ -2,11 +2,12 @@
 <html>
 	<head>
 		<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
-	<link rel="stylesheet" type="text/css" href="css/main.css"> 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/main.css"> 
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	</head>
 	<body>
-		<h1 style = "text-align:center;">Profile Creation</h1>
+		<!--<h1 style = "text-align:center;">Profile Creation</h1>
 		<table style="width: 30%; margin: auto;">
 			<form id="signUpForm" method="post" >
 				<tr><td style = "text-align:right;">Favorite Genre:</td><td ><input type="text" name="Fav_Genre" id="Fav_Genre"></td></tr>
@@ -19,7 +20,15 @@
 
 				<tr><td colspan = "2" style = "text-align:center;"><input style="; padding: 5px 30px; float:center; background-color: #EBCA97; box-shadow:none;" type="submit" value="Sign in" [button_action]/></td></tr>
 			</form>
-	</table>
+	</table>-->
+		<form class="form-signin" role="form" id="signUpForm" method="post">
+		        <h2 class="form-signin-heading">Profile Creation!</h2>
+		        <input type="text" class="form-control" id = "Fav_Genre" placeholder="Favorite Genre" required autofocus>
+		        <input type="text" class="form-control" id = "Likes" placeholder="Likes" required>
+		        <input type="text" class="form-control" id = "Dislike" placeholder="Dislikes" required>
+		        <textarea rows="4" cols="50" name="About_me" id="About_me" form="signUpForm" class="form-control" placeholder="About Me" required></textarea>
+		         <button class="btn btn-lg btn-primary btn-block" type="submit">Start Writing!</button>
+		</form>
 
 	<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 	<script>

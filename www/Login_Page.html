@@ -4,18 +4,16 @@
 			<title>Login Page</title>
 			<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
 			<link rel="stylesheet" type="text/css" href="css/main.css"> 
+			<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		</head>
 		<body>
-			<table width = "100%">
+			<!--<table width = "100%">
 				<tr> 
 					<td><br></td>
 				</tr>
 				<tr> 
 						<td><br></td>
-				</tr>
-				<tr> 
-					<td><br></td>
 				</tr>
 					<tr>
 					<tr>
@@ -54,6 +52,20 @@
 					</tr>
 				</form>
 			</table>
+		-->
+
+			<div class="container">
+
+		      <form class="form-signin" role="form" id="loginForm" method="post">
+		        <h2 class="form-signin-heading">Please sign in</h2>
+		        <input type="Username" class="form-control" id = "username" placeholder="Username" required autofocus>
+		        <input type="password" class="form-control" id = "password" placeholder="Password" required>
+		        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+		      </form>
+		     <a href="Signup.html" class="btn btn-lg btn-primary btn-block" id = "signupbutton">Sign up</a>
+
+
+		    </div>
 				<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 			<script>
 				var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
@@ -88,14 +100,10 @@
 			        Parse.User.logIn(username, password, {
 			            success: function(user) {
 			                window.location.href="HomePage.html";
-			                //self.undelegateEvents();
-			                //delete self;
-			                alert("Success");
 			               // return true;
 			                },
 			            error: function(user, error) {
 			                window.location.href="Login_Page.html";
-			                alert("Error: " + error.code + " " + error.message + username + password);
 			               // return false;
 			                }
 			        });
