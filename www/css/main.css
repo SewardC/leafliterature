@@ -8,7 +8,7 @@ form{
 	text-align: center;
 	font-weight: bold;
 }
-/*Login Css
+/*Login, SignUp, and ProfileCreation CSS
 --------------------------------------------------------
 */
 
@@ -55,7 +55,16 @@ form{
 #signupbutton{
 	text-decoration: none;
 }
-/*-----------------------------------------------------------------------*/
+/*NavBar CSS---------------------------------------------------------------*/
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+/*----------------------------------------------------------------------*/
 .Story1{
 	border-top: 3px solid #5C755E;
 	border-bottom: 3px solid #5C755E;
