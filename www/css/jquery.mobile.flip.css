@@ -106,7 +106,7 @@
 /* pager */
 .flipContainer .pager {
   text-align:center;
-  height: 100px;
+  height: 100%;
   line-height: 6px;
   position: absolute;
   bottom: 0px;
