@@ -8,15 +8,63 @@ form{
 	text-align: center;
 	font-weight: bold;
 }
+/*Login, SignUp, and ProfileCreation CSS
+--------------------------------------------------------
+*/
 
-a:link {
-    text-decoration: none;
+/*body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+*/
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+  color: white;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+#signupbutton{
+	text-decoration: none;
+}
+/*NavBar CSS---------------------------------------------------------------*/
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-a:visited {
-    text-decoration: none;
+.navbar {
+  margin-bottom: 20px;
 }
-
+/*----------------------------------------------------------------------*/
 .Story1{
 	border-top: 3px solid #5C755E;
 	border-bottom: 3px solid #5C755E;
@@ -156,8 +204,8 @@ a:hover {
 
 body{
 	background:linear-gradient(#005A04, #CCFFBB);
-	background-repeat: no-repeat;
-	background-size: contain;
+	background: -webkit-linear-gradient(#005A04, #CCFFBB);
+	background-size: 100% 100%;
 }	
 
 
@@ -219,4 +267,9 @@ body{
 	margin-right:30%;
     position:relative;
     top: 1px;
+}
+
+
+html{
+	min-height: 100%;
 }
