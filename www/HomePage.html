@@ -40,9 +40,7 @@
       </div>
 
 		<form id="signUpForm" method="post" >
-				<table>
-					<tr><td>Post:</td><td><textarea rows="4" cols="25" name="Post_Story" id="Post_Story" form="Post_Story"></textarea></td></tr>
-				</table>
+				<textarea rows="4" cols="25" name="Post_Story" id="Post_Story" form="Post_Story">Post Here</textarea>
 			<input type="submit" value="Post" id="button">
 		</form>
 
@@ -62,7 +60,7 @@
 				for(var i = 0; i < results.length; i++){
 					var object = results[i];
 					var username = object.get("Username");
-					$('body').append('<div class = "Story1"><h1><a href="content.html?username='+ username +'&article_id='+object.id+ '">'+ object.get('Title') + '</a></h1><p>'+object.get("Essay").substr(0,200)+ '...' +'</p><h9>'+username+'</h9></div>');
+					$('body').append('<div class = "Story1"><h1 = class = "Post-Title"><a href="content.html?username='+ username +'&article_id='+object.id+ '">'+ object.get('Title') + '</a></h1><p class = "Post-essay">'+object.get("Essay").substr(0,200)+ '...' +'</p><h9 class = "post-author">'+username+'</h9></div>');
 				}
 			},
 			error: function(error) {

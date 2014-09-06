@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	</head>
-	<body>
+	<body class = "bewbs">
 		<!--<ul class = "TopBar">
   			<li class = "TopBar_Content"><a href="HomePage.html">Home</a></li>
   			<li class = "TopBar_Content"><a href="Profile_Page.html">Profile</a></li>
@@ -42,6 +42,8 @@
 		<h2 class = "Profile_Name" id="profile_name" name="profile_name"></h2>
 		<h2 class = "Profile_Name" id="likes" name="likes"></h2>
 		<h2 class = "Profile_Name" id="dislikes" name="dislikes"></h2>
+		<h2 class = "Profile_Name" id="Aboutme" name="About Me"></h2>
+		<h2 class = "Profile_Name" id="Favoritegenre" name="Favorite Genre"></h2>
 
 		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 		<script>
@@ -58,10 +60,13 @@
 					query.equalTo("objectId", currentUser.id)
 
 					query.find({
-						success: function(user) {
+						success: function(user) { 
 							$('#profile_name').text("User Name: " + user[0].get('username'));
+							$('#Favoritegenre').text("Favorite Genre: " + user[0].get('FaveGenre'));
 							$('#likes').text("Likes: " + user[0].get('Likes'));
-							$('#dislikes').text("Dislikes: " + user[0].get('Dislikes'));
+							$('#dislikes').text("Dislikes: " + user[0].get('Dislikes'))
+							$('#Aboutme').text("About Me: " + user[0].get('AboutMe'))
+							
 							
 						}
 					});
@@ -71,5 +76,6 @@
 				}
 			});
 	</script>
+	<script src="js/bootstrap.min.js"></script>
 	</body>
 </html>
