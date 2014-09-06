@@ -3,15 +3,40 @@
 	<head>
 		<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
 	<link rel="stylesheet" type="text/css" href="css/main.css"> 
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	</head>
 	<body>
-		<ul class = "TopBar">
+		<!--<ul class = "TopBar">
   			<li class = "TopBar_Content"><a href="HomePage.html">Home</a></li>
   			<li class = "TopBar_Content"><a href="Profile_Page.html">Profile</a></li>
   			<li class ="TopBar_Content"><a href="Contacts.html">Contact</a></li>
   			<li class = "TopBar_Content"><a href="Settings.html">Settings</a></li>
-		</ul>
+		</ul>-->
+
+		<div class="container">
+
+      <!-- Static navbar -->
+	      <div class="navbar navbar-default" role="navigation">
+	        <div class="container-fluid">
+	          <div class="navbar-header">
+	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	              <span class="sr-only">Toggle navigation</span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" href="#">LeafLit</a>
+	          </div>
+	          <div class="navbar-collapse collapse in">
+	            <ul class="nav navbar-nav">
+	              <li class="active"><a href="HomePage.html">Home</a></li>
+	              <li><a href="Profile_Page.html">Profile</a></li>
+	              <li><a href="Contacts.html">Contacts</a></li>
+	            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
 
 		<img src="img/Seward.jpg" width="200" height="200"/ class="Profile_img">
 		<h2 class = "Profile_Name" id="profile_name" name="profile_name"></h2>
