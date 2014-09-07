@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
 	<head>
 		<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
@@ -30,7 +30,7 @@
 	          </div>
 	          <div class="navbar-collapse collapse in">
 	            <ul class="nav navbar-nav">
-	              <li class="active"><a href="HomePage.html">Home</a></li>
+	              <li class="active"><a href="ReaderHomePage.html">Home</a></li>
 	              <li><a href="Profile_Page.html">Profile</a></li>
 	              <li><a href="Contacts.html">Contacts</a></li>
 	              <li><a href="Settings.html">Settings</a></li>
@@ -38,45 +38,6 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div>
-
-		<img src="img/Magnificent_CME_Erupts_on_the_Sun_-_August_31.jpg" width="350" height="200"/ class="Profile_img">
-		<h2 class = "Profile_Name" id="profile_name" name="profile_name"></h2>
-		<h2 class = "Profile_Name" id="likes" name="likes"></h2>
-		<h2 class = "Profile_Name" id="dislikes" name="dislikes"></h2>
-		<h2 class = "Profile_Name" id="Aboutme" name="About Me"></h2>
-		<h2 class = "Profile_Name" id="Favoritegenre" name="Favorite Genre"></h2>
-
-		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
-		<script>
-			$(document).ready(function(){
-				var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
-				var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
-				Parse.initialize(parseAPPID, parseJSID);
-
-				var currentUser = new Parse.User.current();			
-
-				if (currentUser) {
-					var User = Parse.Object.extend("User") 
-					var query = new Parse.Query(User)
-					query.equalTo("objectId", currentUser.id)
-
-					query.find({
-						success: function(user) { 
-							$('#profile_name').text("User Name: " + user[0].get('username'));
-							$('#Favoritegenre').text("Favorite Genre: " + user[0].get('FaveGenre'));
-							$('#likes').text("Likes: " + user[0].get('Likes'));
-							$('#dislikes').text("Dislikes: " + user[0].get('Dislikes'))
-							$('#Aboutme').text("About Me: " + user[0].get('AboutMe'))
-							
-							
-						}
-					});
-					
-				} else {
-					location.href = "Login_Page.html"
-				}
-			});
-	</script>
-	<script src="js/bootstrap.min.js"></script>
-	</body>
-</html>
+      <h1 class = "Boo">Please create an account to access profile page.</h1>
+      <h2 class = "Boo">Meanwhile Enjoy this picture.</h2>
+     </body>
