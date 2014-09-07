@@ -46,7 +46,8 @@
 	</div>
 	<hr class="styled-hr" style="width:100%;">
 	<div style="height: 5px; overflow: hidden; width: 100%;"></div>
-	<div class="ASComment"><input id="comment"class="textbox"type="text"placeholder="Say something you wish..."> <br><br> <input id="comment" type="button" class="css_button" value="Comment"/></div>
+	<div class="ASComment"><input id="comment"class="textbox"type="text"placeholder="Say something you wish..."><br><br> <input type="username" class="textbox2" id = "username" placeholder="Temporary Name" autofocus><br><br> <a href="#"><input id="comment" type="button" class="css_button" value="Submit"/></a>
+	</div>
 	<div style="height: 5px; overflow: hidden; width: 100%;"></div>
 	<hr class="styled-hr" style="width:100%;">
 	<div style="height: 5px; overflow: hidden; width: 100%;"></div>
@@ -125,7 +126,7 @@
 							for(var i=0; i<Comment.length; i++)
 							{
 								$('#CommentSection').append('<hr class="styled-hr" style="width:100%;">');
-								$('#CommentSection').append('<div class="review"><h1></h1>'+Comment[i]+'</div>');
+								$('#CommentSection').append('<div class="review"><h6>'+Comment[i][1]+'</h6><p>'+Comment[i][0]+'</p>></div>');
 							}
 						}
 					}
@@ -137,32 +138,53 @@
 		});
 	$('.css_button').click(function(e){
 			e.preventDefault();
-			var comment = $('#comment').val();
-			console.log(comment);
 			query.equalTo("objectId", params.article_id);
 			query.find({
 				success: function(results){
 					for(var i =0; i < results.length; i++){
+						var comment = $('#comment').val();
+						if($('#username').val() != "undefined")
+						{
+							var tempName = $('#username').val();
+						}
+						else
+						{
+							var booValue = false;
+							var tempName = "Anonymous" + Math.random()*10000;
+							while(booValue)
+							{
+								for(var i = 0; i< object.Comment.length; i++)
+								if(tempName === object.Comment[i])
+								{
+									booValue = true;
+									tempName = "Anonymous" + Math.random()*10000;
+								}
+								else
+								{
+									booValue = false;
+								}
+							}
+						}
+						var both = [comment, tempName];
+						console.log(comment);
+						console.log(tempName);
 						var object = results[i];
 						var Comment = [];
 						if(comment != "" && comment != " " && comment != "  " && comment != "  ")
 						{
 							if(typeof(object.get('Comment')) === "undefined")
 							{
-								Comment = [comment];
+								Comment = [both];
 							}
 							else
 							{
 								Comment = object.get('Comment');
-								Comment.push(comment);
+								Comment.push(both);
 							}
 							object.set('Comment', Comment);
 							object.save(null, {
 							  success: function(gameScore) {
 							    // Execute any logic that should take place after the object is saved.
-							    $('#CommentSection').before('<div id="Info" class="Info"><input type="username" class="textbox2" id = "username" placeholder="Temporary Name" required autofocus></div>')
-							    $('#CommentSection').before('<input id="CommentInfo" type="button" class="css_button" value="Sumbit"/></div>');
-
 							    alert('success');
 							  },
 							  error: function(gameScore, error) {
