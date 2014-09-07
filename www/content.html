@@ -42,12 +42,24 @@
 	</ul>
 	<div id="flipRoot" data-role="flip" data-flip-show-pager= "true" data-flip-forward-dir= "ltor">
 	</div>
+	<div>
+		<h5>Comment<h5>
+	</div>
 	<hr class="styled-hr" style="width:100%;">
 	<div style="height: 5px; overflow: hidden; width: 100%;"></div>
-	<div class="ASComment"><input id="comment"class="textbox"type="text"placeholder="Say something you wish..."> <br><br> <input type="button" class="css_button" value="Comment"/></div>
+	<div class="ASComment"><input id="comment"class="textbox"type="text"placeholder="Say something you wish..."> <br><br> <input id="comment" type="button" class="css_button" value="Comment"/></div>
 	<div style="height: 5px; overflow: hidden; width: 100%;"></div>
 	<hr class="styled-hr" style="width:100%;">
 	<div style="height: 5px; overflow: hidden; width: 100%;"></div>
+	<div id="CommentSection">
+	<nav>
+		<ul class="nav nav-pills">
+			<li class="active" id="AllReview"><a href="#">All Reviews</a></li>
+			<li><a href="#">Professionals</a></li>
+			<li><a href="#">Commons</a></li>
+		</ul>
+	</div>
+	</div>
 	<script src="js/parse-1.2.12.min.js" type="text/javascript"></script>
 	<script>
 	var queryString = window.location.search;
@@ -105,6 +117,19 @@
 					     height: '600px' ,
 					     showpager: true ,
 					     loop: true});
+					var $AllReview = $('#AllReview');
+					if($AllReview.hasClass('active'))
+					{
+						if(typeof(object.get('Comment')) != "undefined")
+						{
+							var Comment = object.get('Comment');
+							for(var i=0; i<Comment.length; i++)
+							{
+								$('#CommentSection').append('<hr class="styled-hr" style="width:100%;">');
+								$('#CommentSection').append('<div class="review"><h1></h1>'+Comment[i]+'</div>');
+							}
+						}
+					}
 				}
 			},
 			error: function(error) {
@@ -113,15 +138,42 @@
 		});
 	$('.css_button').click(function(e){
 			e.preventDefault();
-			console.log("1");
 			var comment = $('#comment').val();
+			console.log(comment);
 			query.equalTo("objectId", params.article_id);
 			query.find({
 				success: function(results){
 					for(var i =0; i < results.length; i++){
 						var object = results[i];
-						object.set('comment', comment);
-						console.log('5');
+						var Comment = [];
+						if(comment != "" && comment != " " && comment != "  " && comment != "  ")
+						{
+							if(typeof(object.get('Comment')) === "undefined")
+							{
+								Comment = [comment];
+							}
+							else
+							{
+								Comment = object.get('Comment');
+								Comment.push(comment);
+							}
+							object.set('Comment', Comment);
+							object.save(null, {
+							  success: function(gameScore) {
+							    // Execute any logic that should take place after the object is saved.
+							    $('#CommentSection').before('<div id="Info" class="Info"><input type="username" class="textbox2" id = "username" placeholder="Temporary Name" required autofocus></div>')
+							    $('#CommentSection').before('<input id="CommentInfo" type="button" class="css_button" value="Sumbit"/></div>');
+
+							    alert('success');
+							  },
+							  error: function(gameScore, error) {
+							    // Execute any logic that should take place if the save fails.
+							    // error is a Parse.Error with an error code and description.
+							    alert('Failed to create new object, with error code: ' + error.message);
+							  }
+							});
+							console.log('5');
+							}
 						}
 			},
 			error: function(error) {
