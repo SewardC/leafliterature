@@ -42,8 +42,7 @@
       </div>
 
 		<form id="signUpForm" method="post" >
-				<textarea rows="4" cols="25" name="Post_Story" id="Post_Story" form="Post_Story">Post Here</textarea>
-			<input type="submit" value="Post" id="button">
+			<input type="submit" value="Post Your Story Here" id="button">
 		</form>
 
 
@@ -68,6 +67,9 @@
 			error: function(error) {
 			}
 		});
+		$('#button').click(function(e)){
+			window.location = 'Post_Page.html';
+		}
 		</script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>

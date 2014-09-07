@@ -363,6 +363,11 @@ html{
 }
 </style>   
 
+#button{
+  border: 1px solid #CCC;
+  border-radius: 100%;
+
+}
 /*body{
 	background: url(../img/appbackground.jpg) no-repeat center center fixed;
   background-size: 100% 100%;
