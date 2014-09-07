@@ -146,6 +146,15 @@ div h9 {
   padding-left: 5px
 }
 
+.Boo{
+  width: 80%;
+  margin:0 auto; 
+  box-shadow: 0px 0px 5px #888;
+  background:linear-gradient(#f4f1e0, #c1cdc1);
+  background: -webkit-linear-gradient(#f4f1e0, #c1cdc1);
+  padding-left: 5px;
+  text-align:center;
+}
 
 
 /*.TopBar {
