@@ -7,39 +7,56 @@
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	</head>
-	<body class = "bewbs">
+	<body id = "MyElement" class = "bewbs1">
 		<script type="text/javascript">
 			$(document).ready(function(){
 			/*
 				console.log("1");
 					function Clicked(clicked_id){
 			*/
-				function newBackground(element,background){
-						element.style.background = "url(img/" + background + ".png)";
-					}
+				var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+				var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+				Parse.initialize(parseAPPID, parseJSID);
+				var currentUser = Parse.User.current();
 				$('#AppBackground1').click(function(event){
 					event.preventDefault();
-					$('.Background_Img').css('borderWidth','1%');
-					newBackground(".index", "AppBackground1");
-					newBackground(".bewbs", "AppBackground1");
+					document.getElementById("MyElement").className = "bewbs1";
+					if (currentUser) {
+					currentUser.backgroundChoice = 1;
+					    // do stuff with the user
+					} else {
+					    // show the signup or login page
+					}
 				});
 				$('#AppBackground2').click(function(event){
 					event.preventDefault();
-					$('.Background_Img').css('borderWidth','1%');
-					newBackground(".index", "AppBackground2");
-					newBackground(".bewbs", "AppBackground2");
+					document.getElementById("MyElement").className = "bewbs2";
+					if (currentUser) {
+						currentUser.backgroundChoice = 2;
+					    // do stuff with the user
+					} else {
+					    // show the signup or login page
+					}
 				});
 				$('#AppBackground3').click(function(event){
 					event.preventDefault();
-					$('.Background_Img').css('borderWidth','1%');
-					newBackground(".index", "AppBackground3");
-					newBackground(".bewbs", "AppBackground3");
+					document.getElementById("MyElement").className = "bewbs3";
+					if (currentUser) {
+						currentUser.backgroundChoice = 3;
+					    // do stuff with the user
+					} else {
+					    // show the signup or login page
+					}
 				});
 				$('#AppBackground4').click(function(event){
 					event.preventDefault();
-					$('.Background_Img').css('borderWidth','1%');
-					newBackground(".index", "AppBackground1");
-					newBackground(".bewbs", "AppBackground1");
+					document.getElementById("MyElement").className = "bewbs4";
+					if (currentUser) {
+					currentUser.backgroundChoice = 4;
+					    // do stuff with the user
+					} else {
+					    // show the signup or login page
+					}
 				});
 			});
 		</script>
@@ -93,5 +110,6 @@
 				<td><img style="margin-left:10%"src="img/Background1.png" width="80%" height="35%" class="Background_Img" id="AppBackground4"></td>
 			</tr>
 		</table>
+
 	</body>
 </html>
