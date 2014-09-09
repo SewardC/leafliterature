@@ -139,6 +139,13 @@ div h9 {
 	font-size: 20px;
 }
 
+.booooooooobs{
+  font-size: 20px;
+  font-family: Neue Helvetica;
+  float: right;
+  color: blue;
+}
+
 .p{
   box-shadow: 0px 0px 5px #888;
   background:linear-gradient(#f4f1e0, #c1cdc1);
@@ -156,6 +163,29 @@ div h9 {
   text-align:center;
 }
 
+.review{
+  font-family: Neue Helvetica;
+  width: 80%;
+  margin:0 auto; 
+  box-shadow: 0px 0px 5px #888;
+  background:linear-gradient(#f4f1e0, #c1cdc1);
+  background: -webkit-linear-gradient(#f4f1e0, #c1cdc1);
+  padding-left: 5px;
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+.b00b{
+  font-family: Neue Helvetica;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.boobs{
+  font-family: Neue Helvetica;
+  font-size:30px;
+  font-weight: bold;
+}
 
 /*.TopBar {
     list-style-type: none;
