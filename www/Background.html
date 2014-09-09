@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">  
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 	</head>
 	<body id = "MyElement" class = "bewbs1">
 		<script type="text/javascript">
@@ -22,7 +23,15 @@
 					event.preventDefault();
 					document.getElementById("MyElement").className = "bewbs1";
 					if (currentUser) {
-					currentUser.backgroundChoice = 1;
+					currentUser.set("backgroundChoice",1);
+					currentUser.save(null, {
+						success: function(user) {
+			               // return true;
+			                },
+			            error: function(user, error) {
+			               // return false;
+			                }
+			             });
 					    // do stuff with the user
 					} else {
 					    // show the signup or login page
@@ -32,8 +41,15 @@
 					event.preventDefault();
 					document.getElementById("MyElement").className = "bewbs2";
 					if (currentUser) {
-						currentUser.backgroundChoice = 2;
-					    // do stuff with the user
+					currentUser.set("backgroundChoice",2);
+					currentUser.save(null, {
+						success: function(user) {
+			               // return true;
+			                },
+			            error: function(user, error) {
+			               // return false;
+			                }
+			             });
 					} else {
 					    // show the signup or login page
 					}
@@ -42,8 +58,15 @@
 					event.preventDefault();
 					document.getElementById("MyElement").className = "bewbs3";
 					if (currentUser) {
-						currentUser.backgroundChoice = 3;
-					    // do stuff with the user
+					currentUser.set("backgroundChoice",3);
+					currentUser.save(null, {
+						success: function(user) {
+			               // return true;
+			                },
+			            error: function(user, error) {
+			               // return false;
+			                }
+			             });
 					} else {
 					    // show the signup or login page
 					}
@@ -52,12 +75,31 @@
 					event.preventDefault();
 					document.getElementById("MyElement").className = "bewbs4";
 					if (currentUser) {
-					currentUser.backgroundChoice = 4;
-					    // do stuff with the user
+					currentUser.set("backgroundChoice",4);
+					currentUser.save(null, {
+						success: function(user) {
+			               // return true;
+			                },
+			            error: function(user, error) {
+			               // return false;
+			                }
+			             });
 					} else {
 					    // show the signup or login page
 					}
 				});
+				var currentUser = Parse.User.current();
+			if (currentUser) {
+					if(currentUser.get("backgroundChoice")=== 2)    // do stuff with the user
+					{	
+						document.getElementById("MyElement").className = "bewbs2";
+					} else if(currentUser.get("backgroundChoice")=== 3){
+						document.getElementById("MyElement").className = "bewbs3";
+					} else if(currentUser.get("backgroundChoice")=== 4){
+						document.getElementById("MyElement").className = "bewbs4";
+					}
+					    // show the signup or login page
+			}
 			});
 		</script>
 		<!--<ul class = "TopBar">

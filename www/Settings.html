@@ -52,5 +52,19 @@
 			</tr>
 		</table>
 		<script src="js/bootstrap.min.js"></script>
+		<script>
+			var currentUser = Parse.User.current();
+			if (currentUser) {
+					if(currentUser.get("backgroundChoice")=== 2)    // do stuff with the user
+					{	
+						document.getElementById("MyElement").className = "bewbs2";
+					} else if(currentUser.get("backgroundChoice")=== 3){
+						document.getElementById("MyElement").className = "bewbs3";
+					} else if(currentUser.get("backgroundChoice")=== 4){
+						document.getElementById("MyElement").className = "bewbs4";
+					}
+					    // show the signup or login page
+			}
+		</script>
 	</body>
 </html>
