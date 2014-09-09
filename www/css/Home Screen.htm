@@ -1,13 +1,13 @@
-<!DOCTYPE html>x	
-<html>
-	<head>
+<!DOCTYPE html>
+<!-- saved from url=(0127)file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/HomePage.html?username=SewardChen1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Home Screen</title>
-		<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
-		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
-		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<link rel="shortcut icon" href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/img/LeafLit_FavIcon.png">
+		<link rel="stylesheet" type="text/css" href="./Home Screen_files/main.css">
+		<link rel="stylesheet" type="text/css" href="./Home Screen_files/bootstrap.min.css"> 
+		<script type="text/javascript" src="./Home Screen_files/jquery.min.js"></script>
 	</head>
-	<body class = "index">
+	<body class="index">
 		<!--<ul class = "TopBar">
   			<li class = "TopBar_Content"><a href="HomePage.html">Home</a></li>
   			<li class = "TopBar_Content"><a href="Profile_Page.html">Profile</a></li>
@@ -27,27 +27,27 @@
 	              <span class="icon-bar"></span>
 	              <span class="icon-bar"></span>
 	            </button>
-	            <a class="navbar-brand" href="#">LeafLit</a>
+	            <a class="navbar-brand" href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/HomePage.html?username=SewardChen1#">LeafLit</a>
 	          </div>
 	          <div class="navbar-collapse collapse in">
 	            <ul class="nav navbar-nav">
-	              <li class="active"><a href="HomePage.html">Home</a></li>
-	              <li><a href="Profile_Page.html">Profile</a></li>
-	              <li><a href="Contacts.html">Contacts</a></li>
-	              <li><a href="Settings.html">Settings</a></li>
+	              <li class="active"><a href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/HomePage.html">Home</a></li>
+	              <li><a href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/Profile_Page.html">Profile</a></li>
+	              <li><a href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/Contacts.html">Contacts</a></li>
+	              <li><a href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/Settings.html">Settings</a></li>
 
 	            </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div>
 
-		<form id="signUpForm" method="get" action='#'>
-			<button class="btn btn-lg btn-primary btn-block" id="new_post" type="button">Post Your Story Here</button>
+		<form id="signUpForm" method="get" action="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/HomePage.html?username=SewardChen1#">
+			<input type="button" class="new_post" id="new_post" value="Post Your Story Here" autofocus="">
 		</form>
 
 
 
-		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+		<script src="./Home Screen_files/parse-1.2.12.min.js"></script>
 
 		<script>
 		var queryString = window.location.search;
@@ -66,8 +66,6 @@
 		    return params;
 		};
 		$(document).ready(function(){
-			var params = parseQueryString(queryString);
-			console.log(params.username);
 		    var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
 			var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
 			Parse.initialize(parseAPPID, parseJSID);
@@ -87,11 +85,11 @@
 			});
 
 			$('#new_post').click(function(e){
-				e.preventDefault();
-				window.location.href = "Post_page.html?username=" + params.username;
+				var params = parseQueryString(queryString);
+				window.location.href = "Post_page.html?username=' + params.username'";
 			});
 		});
 		</script>
-		<script src="js/bootstrap.min.js"></script>
-	</body>
-</html>
+		<script src="./Home Screen_files/bootstrap.min.js"></script>
+	
+</div></body></html>

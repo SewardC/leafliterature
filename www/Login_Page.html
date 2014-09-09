@@ -64,9 +64,8 @@
 		      </form>
 		     <a href="SignUp.html" class="btn btn-lg btn-primary btn-block" id = "signupbutton">Sign up</a>
 
-
 		    </div>
-				<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+				<script type="text/javascript" src="js/parse-1.2.12.min.js"></script>
 			<script>
 				var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
 				var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
@@ -99,7 +98,7 @@
 					console.log("Username: " + username + " Password: " + password);
 			        Parse.User.logIn(username, password, {
 			            success: function(user) {
-			                window.location.href="HomePage.html";
+			                window.location.href="HomePage.html?username="+username +"&test=test";
 			               // return true;
 			                },
 			            error: function(user, error) {

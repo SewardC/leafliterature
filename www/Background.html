@@ -5,8 +5,44 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">  
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	</head>
 	<body class = "bewbs">
+		<script type="text/javascript">
+			$(document).ready(function(){
+			/*
+				console.log("1");
+					function Clicked(clicked_id){
+			*/
+				function newBackground(element,background){
+						element.style.background = "url(img/" + background + ".png)";
+					}
+				$('#AppBackground1').click(function(event){
+					event.preventDefault();
+					$('.Background_Img').css('borderWidth','1%');
+					newBackground(".index", "AppBackground1");
+					newBackground(".bewbs", "AppBackground1");
+				});
+				$('#AppBackground2').click(function(event){
+					event.preventDefault();
+					$('.Background_Img').css('borderWidth','1%');
+					newBackground(".index", "AppBackground2");
+					newBackground(".bewbs", "AppBackground2");
+				});
+				$('#AppBackground3').click(function(event){
+					event.preventDefault();
+					$('.Background_Img').css('borderWidth','1%');
+					newBackground(".index", "AppBackground3");
+					newBackground(".bewbs", "AppBackground3");
+				});
+				$('#AppBackground4').click(function(event){
+					event.preventDefault();
+					$('.Background_Img').css('borderWidth','1%');
+					newBackground(".index", "AppBackground1");
+					newBackground(".bewbs", "AppBackground1");
+				});
+			});
+		</script>
 		<!--<ul class = "TopBar">
   			<li class = "TopBar_Content"><a href="HomePage.html">Home</a></li>
   			<li class = "TopBar_Content"><a href="Profile_Page.html">Profile</a></li>
@@ -32,7 +68,7 @@
 	              <li><a href="Contacts.html">Contacts</a></li>
 	              <li class="active"><a href="Settings.html">Settings</a></li>
 
-	            </ul>
+	            </ul>	
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div>	
@@ -42,15 +78,20 @@
 
 		<table class = "Settings_Table">
 			<tr class = "Settings_Table_Row">
-				<td class = "Settings_Table_Data"><a href="Background.html" class="setting_button">background color</a></td>
+				<td style="text-align:center;">Background Choices</td>
 			</tr>
 			<tr class = "Settings_Table_Row">
-				<td class = "Settings_Table_Data"><a href="#" class="setting_button">Notification</a></td>
+				<td><img style="margin-left:10%"src="img/AppBackground1.png" width="80%" height="35%" class="Background_Img" id="AppBackground1"></td>
 			</tr>
 			<tr class = "Settings_Table_Row">
-				<td class = "Settings_Table_Data"><a href="Login_Page.html" class="setting_button">Sign Out</a></td>
+				<td><img style="margin-left:10%"src="img/AppBackground2.png" width="80%" height="35%" class="Background_Img" id="AppBackground2"></td>
+			</tr>
+			<tr class = "Settings_Table_Row">
+				<td><img style="margin-left:10%"src="img/AppBackground3.png" width="80%" height="35%" class="Background_Img" id="AppBackground3"></td>
+			</tr>
+			<tr class = "Settings_Table_Row">
+				<td><img style="margin-left:10%"src="img/Background1.png" width="80%" height="35%" class="Background_Img" id="AppBackground4"></td>
 			</tr>
 		</table>
-		<script src="js/bootstrap.min.js"></script>
 	</body>
 </html>

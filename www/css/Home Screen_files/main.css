@@ -19,11 +19,7 @@ form{
 }
 */
 .index, .bewbs{
-  width:100%;
-  height:100%;
-  background: url(../img/AppBackground1.png) no-repeat;
-  background-position:50% 50%;
-  background-size:cover;
+  background:#aaa;
 }
 .Login_App_img{
 	position: absolute;
@@ -219,30 +215,15 @@ Contacts---------------------------------------------------------------*/
 .Settings_Table {
   table-layout: fixed;
   border-collapse: collapse;
-  width: 75%;
-  margin-left:12.5%;
-  margin-top: 2.5%;
+  width: 70%;
+  margin: auto;
+  margin-top: 50px;
   border: 10px solid white;
-  -webkit-box-shadow: 5px 5px 5px 0px #C2C2C2;
-     -moz-box-shadow: 5px 5px 5px 0px #C2C2C2;
-          box-shadow: 5px 5px 5px 0px #C2C2C2;
-
-  background-color: #F5F5F5;
-  position: absolute;
-
-  border-radius: 10%;
-    -moz-border-radius: 26px;
-    -webkit-border-radius: 26px;
-    height: 200px;
-    padding: 0%;
-
+  background: grey;
 }
 .Settings_Table_Row{
-	border:10px solid grey;
-  border-radius:25%;
+	border:10px solid white;
 }
-
-/*
 .Settings_Table_Data {
   border: 1px solid #000;
   width: 100px;
@@ -250,8 +231,7 @@ Contacts---------------------------------------------------------------*/
   padding: 30px;
   text-align: center;
 }
-*/
-/*
+
 .Title_Settings_Class{
 	font-size: 50px;
 	font-family: bold;
@@ -267,7 +247,6 @@ Contacts---------------------------------------------------------------*/
 	text-align: center;
 	margin-top: -30px;
 }
-*/
 /*------------------------------------------------------*/
 
 
@@ -293,15 +272,12 @@ Contacts---------------------------------------------------------------*/
 a { 
 	color: black; text-decoration: none; 
 } 
-
 a:visited { 
 	color: black;
  } 
 a:hover { 
 	color: #75715E;
-  text-decoration: none;
-
-
+  text-decoration: none; 
 }
 
 /* These are for the after-story coment*/
@@ -401,58 +377,7 @@ html{
   border-radius: 100%;
 
 }
-.setting_button {
-    margin-left:5%;
-    margin-right:5%;
-    width:90%;
-    text-align:center;
-    font-family: Times New Roman;
-    font-size: 1.25em;
-    font-family: Arial;
-    font-weight: normal;
-    text-decoration: none;
-    -webkit-border-radius: 17px 17px 17px 17px;
-    -moz-border-radius: 17px 17px 17px 17px;
-    border-radius: 17px 17px 17px 17px;
-    border: 1px solid #32E316;
-    padding: 19px 36px;
-    text-shadow: 2px 2px 1px rgba(170, 222, 124, 0.79);
-    -webkit-box-shadow: inset 1px 1px 6px 1px #caefab;
-    -moz-box-shadow: inset 1px 1px 6px 1px #caefab;
-    box-shadow: inset 1px 1px 6px 1px #caefab;
-    cursor: pointer;
-    color: #2D570B;
-    display: inline-block;
-    background: -webkit-linear-gradient(78deg, rgba(96, 186, 23, 0.78) 17%, rgba(115, 247, 8, 0.42) 58%);
-    background: -moz-linear-gradient(78deg, rgba(96, 186, 23, 0.78) 17%, rgba(115, 247, 8, 0.42) 58%);
-    background: -ms-linear-gradient(78deg, rgba(96, 186, 23, 0.78) 17%, rgba(115, 247, 8, 0.42) 58%);
-    background: linear-gradient(168deg, rgba(115, 247, 8, 0.42) 17%, rgba(96, 186, 23, 0.78) 58%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#73F708",endColorstr="#60BA17");
-}
-
-.setting_button:hover {
-    text-decoration: none;
-    color:grey;
-    background: -webkit-linear-gradient(78deg, rgba(115, 247, 8, 0.42) 17%, rgba(96, 186, 23, 0.78) 58%);
-    background: -moz-linear-gradient(78deg, rgba(115, 247, 8, 0.42) 17%, rgba(96, 186, 23, 0.78) 58%);
-    background: -ms-linear-gradient(78deg, rgba(115, 247, 8, 0.42) 17%, rgba(96, 186, 23, 0.78) 58%);
-    background: linear-gradient(168deg, rgba(96, 186, 23, 0.78) 17%, rgba(115, 247, 8, 0.42) 58%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#60BA17",endColorstr="#73F708");
-}
-
-.setting_button:active {
-    text-decoration: none;
-    color:grey;
-    position:relative;
-    top: 1px;
-}
-
 /*body{
 	background: url(../img/appbackground.jpg) no-repeat center center fixed;
   background-size: 100% 100%;
 }*/
-
-.Background_Img:hover {
-  width:85%;
-  height:45%;
-}
