@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!DOCTYPE html>x	
 <html>
 	<head>
 		<title>Home Screen</title>
 		<link rel="shortcut icon" href="img/LeafLit_FavIcon.png" />
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> 
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
 	</head>
-	<body class = "index">
+	<body id = "MyElement" class = "bewbs1">
 		<!--<ul class = "TopBar">
   			<li class = "TopBar_Content"><a href="HomePage.html">Home</a></li>
   			<li class = "TopBar_Content"><a href="Profile_Page.html">Profile</a></li>
@@ -40,25 +40,68 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div>
+
+		<form id="signUpForm" method="get" action='#'>
+			<button class="btn btn-lg btn-primary btn-block" id="new_post" type="button">Post Your Story Here</button>
+		</form>
+
+
+
 		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 
 		<script>
-	    var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
-		var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
-		Parse.initialize(parseAPPID, parseJSID);
-		var essays = Parse.Object.extend("Essays");
-		var query = new Parse.Query(essays);
-		query.equalTo("Username","erik1566");
-		query.find({
-			success: function(results){
-				for(var i = 0; i < results.length; i++){
-					var object = results[i];
-					var username = object.get("Username");
-					$('body').append('<div class = "Story1"><h1 = class = "Post-Title"><a href="content.html?username='+ username +'&article_id='+object.id+ '">'+ object.get('Title') + '</a></h1><p class = "Post-essay">'+object.get("Essay").substr(0,200)+ '...' +'</p><h9 class = "post-author">'+username+'</h9><h9 class = "booooooooobs">Show Comments</h9</div>');
+		var queryString = window.location.search;
+		var parseQueryString = function( queryString ) {
+		    var params = {}, queries, temp, i, l;
+		 
+		    // Split into key/value pairs
+		    queries = queryString.split("&");
+		 
+		    // Convert the array of strings into an object
+		    for ( i = 0, l = queries.length; i < l; i++ ) {
+		        temp = queries[i].split('=');
+		        params[temp[0]] = temp[1];
+		    }
+		 
+		    return params;
+		};
+		$(document).ready(function(){
+			var params = parseQueryString(queryString);
+			console.log(params.username);
+		    var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+			var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+			Parse.initialize(parseAPPID, parseJSID);
+			var essays = Parse.Object.extend("Essays");
+			var query = new Parse.Query(essays);
+			query.equalTo("Username","erik1566");
+			query.find({
+				success: function(results){
+					for(var i = 0; i < results.length; i++){
+						var object = results[i];
+						var username = object.get("Username");
+						$('body').append('<div class = "Story1"><h1 = class = "Post-Title"><a href="content.html?username='+ username +'&article_id='+object.id+ '">'+ object.get('Title') + '</a></h1><p class = "Post-essay">'+object.get("Essay").substr(0,200)+ '...' +'</p><h9 class = "post-author">'+username+'</h9><h9 class = "booooooooobs">Show Comments</h9</div>');
+					}
+				},
+				error: function(error) {
 				}
-			},
-			error: function(error) {
+			});
+			var currentUser = Parse.User.current();
+			if (currentUser) {
+					if(currentUser.get("backgroundChoice")=== 2)    // do stuff with the user
+					{	
+						document.getElementById("MyElement").className = "bewbs2";
+					} else if(currentUser.get("backgroundChoice")=== 3){
+						document.getElementById("MyElement").className = "bewbs3";
+					} else if(currentUser.get("backgroundChoice")=== 4){
+						document.getElementById("MyElement").className = "bewbs4";
+					}
+					    // show the signup or login page
 			}
+			$('#new_post').click(function(e){
+				e.preventDefault();
+				window.location.href = "Post_page.html?username=" + params.username;
+			});
+
 		});
 		</script>
 		<script src="js/bootstrap.min.js"></script>

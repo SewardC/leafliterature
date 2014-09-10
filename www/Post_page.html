@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </head>
-<body class = "bewbs">
+<body id = "MyElement" class = "bewbs1">
 	 <div class="navbar navbar-default" role="navigation">
 	        <div class="container-fluid">
 	          <div class="navbar-header">
@@ -30,13 +30,65 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div> 	          	 
-      <h2 class="form-signin-heading" style = "color:white; text-align:center;">New Post.</h2>
-	 <form class="form-signin" role="form" id="Post" method="post">
+      <h2 class="form-signin-heading" style = "color:grey; text-align:center; font-weight:bold">New Post.</h2>
+	 <form class="form-signin" role="form" id="Post" method="post" action "#">
 	       <input type="Title" class="form-control" id = "Title" placeholder="Title" required autofocus style = "margin-bottom: 25px;">
-	 	   <textarea rows="10" cols="100" name="Post" id="Post" form="Post" class="form-control" placeholder="Post Here" required style = "margin-bottom: 15px;"></textarea>
-	   	   <button class="btn btn-lg btn-primary btn-block" type="submit">Post!</button>
+	 	   <textarea rows="10" cols="100" name="Post" id="Post_Article" form="Post" class="form-control" placeholder="Post Here" required style = "margin-bottom: 15px;" required></textarea>
+	   	   <button class="btn btn-lg btn-primary btn-block" id="Post_Button" type="button">Post!</button>
 	 </form>
 
 	 <script src="js/bootstrap.min.js"></script>
+	 <script type="text/javascript" src="js/parse-1.2.12.min.js"></script>
+	 <script>
+			var queryString = window.location.search;
+			queryString = queryString.substring(1);
+			var parseQueryString = function( queryString ) {
+			    var params = {}, queries, temp, i, l;
+			 
+			    // Split into key/value pairs
+			    queries = queryString.split("&");
+			 
+			    // Convert the array of strings into an object
+			    for ( i = 0, l = queries.length; i < l; i++ ) {
+			        temp = queries[i].split('=');
+			        params[temp[0]] = temp[1];
+			    }
+			 
+			    return params;
+			};
+			var currentUser = Parse.User.current();
+			if (currentUser) {
+					if(currentUser.get("backgroundChoice")=== 2)    // do stuff with the user
+					{	
+						document.getElementById("MyElement").className = "bewbs2";
+					} else if(currentUser.get("backgroundChoice")=== 3){
+						document.getElementById("MyElement").className = "bewbs3";
+					} else if(currentUser.get("backgroundChoice")=== 4){
+						document.getElementById("MyElement").className = "bewbs4";
+					}
+					    // show the signup or login page
+			}
+		 $('#Post_Button').click(function(e){
+		 		e.preventDefault();
+		 		var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+				var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+				Parse.initialize(parseAPPID, parseJSID);
+				var Essays = Parse.Object.extend("Essays");
+				var essays = new Essays();
+		 		var params = parseQueryString(queryString);
+		 		essays.set("Username", params.username);
+		 		essays.set("Title", $('#Title').val());
+		 		essays.set("Essay", $('#Post_Artile').val());
+		 		essays.save(null, {
+		 			success:function(essays){
+
+		 			},
+		 			error:function(essays, error){
+
+		 			}
+		 		});
+		 		window.location.href = "HomePage.html?username="+ params.username;
+	 	});
+	 </script>
 </body>
 </html>

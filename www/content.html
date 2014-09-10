@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="js/jquery.mobile.flip.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/inlineDisqussions.css" />
 </head>
-<body class = "bewbs">
+<body id = "MyElement" class = "bewbs1">
 	<script type="text/javascript" src="js/inlineDisqussions.js"></script>
 		<div class="container">
 
@@ -47,7 +47,7 @@
 	</div>
 	<hr class="styled-hr" style="width:100%;">
 	<div style="height: 5px; overflow: hidden; width: 100%;"></div>
-	<div class="ASComment"><input id="comment"class="textbox"type="text"placeholder="Say something you wish..."><br><br> <input type="username" class="textbox2" id = "username" placeholder="Temporary Name" autofocus><br><br> <a href="#"><input id="comment" type="button" class="css_button" value="Submit"/></a>
+	<div class="ASComment"><textarea id="comment"class="textbox"type="text"placeholder="Say something you wish..."rows="3" cols="5" required style = "margin-bottom: 15px;"></textarea><br><br> <input type="username" class="textbox2" id = "username" placeholder="Temporary Name" autofocus><br><br> <input id="comment" type="button" class="css_button" value="Submit"/>
 	</div>
 	<div style="height: 5px; overflow: hidden; width: 100%;"></div>
 	<hr class="styled-hr" style="width:100%;">
@@ -137,6 +137,18 @@
 				alert('Error');
 			} 
 		});
+	var currentUser = Parse.User.current();
+			if (currentUser) {
+					if(currentUser.get("backgroundChoice")=== 2)    // do stuff with the user
+					{	
+						document.getElementById("MyElement").className = "bewbs2";
+					} else if(currentUser.get("backgroundChoice")=== 3){
+						document.getElementById("MyElement").className = "bewbs3";
+					} else if(currentUser.get("backgroundChoice")=== 4){
+						document.getElementById("MyElement").className = "bewbs4";
+					}
+					    // show the signup or login page
+			}
 	$('.css_button').click(function(e){
 			e.preventDefault();
 			query.equalTo("objectId", params.article_id);
@@ -186,7 +198,7 @@
 							object.save(null, {
 							  success: function(gameScore) {
 							    // Execute any logic that should take place after the object is saved.
-							    alert('success');
+							    window.location.reload();
 							  },
 							  error: function(gameScore, error) {
 							    // Execute any logic that should take place if the save fails.

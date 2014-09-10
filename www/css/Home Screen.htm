@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!-- saved from url=(0127)file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/HomePage.html?username=SewardChen1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>Home Screen</title>
+		<link rel="shortcut icon" href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/img/LeafLit_FavIcon.png">
+		<link rel="stylesheet" type="text/css" href="./Home Screen_files/main.css">
+		<link rel="stylesheet" type="text/css" href="./Home Screen_files/bootstrap.min.css"> 
+		<script type="text/javascript" src="./Home Screen_files/jquery.min.js"></script>
+	</head>
+	<body class="index">
+		<!--<ul class = "TopBar">
+  			<li class = "TopBar_Content"><a href="HomePage.html">Home</a></li>
+  			<li class = "TopBar_Content"><a href="Profile_Page.html">Profile</a></li>
+  			<li class ="TopBar_Content"><a href="Contacts.html">Contact</a></li>
+  			<li class = "TopBar_Content"><a href="Settings.html">Settings</a></li>
+		</ul>-->
+
+		<div class="container">
+
+      <!-- Static navbar -->
+	      <div class="navbar navbar-default" role="navigation">
+	        <div class="container-fluid">
+	          <div class="navbar-header">
+	            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	              <span class="sr-only">Toggle navigation</span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	              <span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/HomePage.html?username=SewardChen1#">LeafLit</a>
+	          </div>
+	          <div class="navbar-collapse collapse in">
+	            <ul class="nav navbar-nav">
+	              <li class="active"><a href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/HomePage.html">Home</a></li>
+	              <li><a href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/Profile_Page.html">Profile</a></li>
+	              <li><a href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/Contacts.html">Contacts</a></li>
+	              <li><a href="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/Settings.html">Settings</a></li>
+
+	            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+		<form id="signUpForm" method="get" action="file:///C:/Users/SewardC/Desktop/Summer%20Program/New%20GenTech%20Program/leafLiterature/www/HomePage.html?username=SewardChen1#">
+			<input type="button" class="new_post" id="new_post" value="Post Your Story Here" autofocus="">
+		</form>
+
+
+
+		<script src="./Home Screen_files/parse-1.2.12.min.js"></script>
+
+		<script>
+		var queryString = window.location.search;
+		var parseQueryString = function( queryString ) {
+		    var params = {}, queries, temp, i, l;
+		 
+		    // Split into key/value pairs
+		    queries = queryString.split("&");
+		 
+		    // Convert the array of strings into an object
+		    for ( i = 0, l = queries.length; i < l; i++ ) {
+		        temp = queries[i].split('=');
+		        params[temp[0]] = temp[1];
+		    }
+		 
+		    return params;
+		};
+		$(document).ready(function(){
+		    var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+			var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+			Parse.initialize(parseAPPID, parseJSID);
+			var essays = Parse.Object.extend("Essays");
+			var query = new Parse.Query(essays);
+			query.equalTo("Username","erik1566");
+			query.find({
+				success: function(results){
+					for(var i = 0; i < results.length; i++){
+						var object = results[i];
+						var username = object.get("Username");
+						$('body').append('<div class = "Story1"><h1 = class = "Post-Title"><a href="content.html?username='+ username +'&article_id='+object.id+ '">'+ object.get('Title') + '</a></h1><p class = "Post-essay">'+object.get("Essay").substr(0,200)+ '...' +'</p><h9 class = "post-author">'+username+'</h9></div>');
+					}
+				},
+				error: function(error) {
+				}
+			});
+
+			$('#new_post').click(function(e){
+				var params = parseQueryString(queryString);
+				window.location.href = "Post_page.html?username=' + params.username'";
+			});
+		});
+		</script>
+		<script src="./Home Screen_files/bootstrap.min.js"></script>
+	
+</div></body></html>

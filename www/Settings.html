@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">  
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	</head>
-	<body class = "bewbs">
+	<body id = "MyElement" class = "bewbs1">
 		<!--<ul class = "TopBar">
   			<li class = "TopBar_Content"><a href="HomePage.html">Home</a></li>
   			<li class = "TopBar_Content"><a href="Profile_Page.html">Profile</a></li>
@@ -27,30 +27,44 @@
 	          </div>
 	          <div class="navbar-collapse collapse in">
 	            <ul class="nav navbar-nav">
-	              <li class="active"><a href="HomePage.html">Home</a></li>
+	              <li><a href="HomePage.html">Home</a></li>
 	              <li><a href="Profile_Page.html">Profile</a></li>
 	              <li><a href="Contacts.html">Contacts</a></li>
-	              <li><a href="Settings.html">Settings</a></li>
+	              <li class="active"><a href="Settings.html">Settings</a></li>
 
 	            </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </div>	
 
-		<h2 class = "Title_Settings_Class">Settings</h2>
+		<h2 class="form-signin-heading" style = "color:grey; text-align:center; font-weight:bold">Settings</h2>
 
 
 		<table class = "Settings_Table">
 			<tr class = "Settings_Table_Row">
-				<td class = "Settings_Table_Data">Background Color</td>
+				<td class = "Settings_Table_Data"><a href="Background.html" class="setting_button">background color</a></td>
 			</tr>
 			<tr class = "Settings_Table_Row">
-				<td class = "Settings_Table_Data">Notifications</td>
+				<td class = "Settings_Table_Data"><a href="#" class="setting_button">Notification</a></td>
 			</tr>
 			<tr class = "Settings_Table_Row">
-				<td class = "Settings_Table_Data"><a href="Login_Page.html">Sign Out</a></td>
+				<td class = "Settings_Table_Data"><a href="Login_Page.html" class="setting_button">Sign Out</a></td>
 			</tr>
 		</table>
 		<script src="js/bootstrap.min.js"></script>
+		<script>
+			var currentUser = Parse.User.current();
+			if (currentUser) {
+					if(currentUser.get("backgroundChoice")=== 2)    // do stuff with the user
+					{	
+						document.getElementById("MyElement").className = "bewbs2";
+					} else if(currentUser.get("backgroundChoice")=== 3){
+						document.getElementById("MyElement").className = "bewbs3";
+					} else if(currentUser.get("backgroundChoice")=== 4){
+						document.getElementById("MyElement").className = "bewbs4";
+					}
+					    // show the signup or login page
+			}
+		</script>
 	</body>
 </html>
