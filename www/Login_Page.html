@@ -96,7 +96,6 @@
 */
 					var username = $('#username').val();
 					var password = $('#password').val();
-					console.log("Username: " + username + " Password: " + password);
 			        Parse.User.logIn(username, password, {
 			            success: function(user) {
 			                window.location.href="HomePage.html?username="+username +"&test=test";
@@ -107,7 +106,6 @@
 			               // return false;
 			                }
 			        });
-					console.log("3");
 				});
 			</script>
 		</body>

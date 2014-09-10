@@ -179,22 +179,24 @@
 							}
 						}
 						var both = [comment, tempName];
-						console.log(comment);
-						console.log(tempName);
 						var object = results[i];
 						var Comment = [];
+						var numcomments = object.get("numComments");
 						if(comment != "" && comment != " " && comment != "  " && comment != "  ")
 						{
 							if(typeof(object.get('Comment')) === "undefined")
 							{
 								Comment = [both];
+								numcomments = 1;
 							}
 							else
 							{
 								Comment = object.get('Comment');
 								Comment.push(both);
+								numcomments++;
 							}
 							object.set('Comment', Comment);
+							object.set("numComments", numcomments);
 							object.save(null, {
 							  success: function(gameScore) {
 							    // Execute any logic that should take place after the object is saved.
@@ -203,10 +205,8 @@
 							  error: function(gameScore, error) {
 							    // Execute any logic that should take place if the save fails.
 							    // error is a Parse.Error with an error code and description.
-							    alert('Failed to create new object, with error code: ' + error.message);
 							  }
 							});
-							console.log('5');
 							}
 							object.fetch({
 							  success: function(myObject) {
