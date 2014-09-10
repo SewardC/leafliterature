@@ -94,16 +94,16 @@
 					var numOfEssay = object.get('Essay').length;
 					var essay = object.get('Essay');
 					var start = 0;
-					var numOfChar = 1200;
+					var numOfChar = 1050;
 					var counter = 1;
-					if(numOfEssay > 1200)
+					if(numOfEssay > 1050)
 					{
-						while(numOfEssay> 1200)
+						while(numOfEssay> 1050)
 						{
 							$('#flipRoot').append('<div class="p"><h1>' + object.get('Title')+ '</h1><p>'+ essay.substr(start, numOfChar) + '</p></div>');
 							//$('#magazine').append('<div><span class="text">Page 1</span></div>');
-							numOfEssay -= 1200;
-							start+=1200;
+							numOfEssay -= 1050;
+							start+=1050;
 							counter++;
 						}
 						$('#filpRoot').append('<div class="p"><h1>' + object.get('Title')+ '</h1><p>'+ essay.substr(start, essay.length-1) + '</p></div>');
