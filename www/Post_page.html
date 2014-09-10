@@ -56,6 +56,9 @@
 			 
 			    return params;
 			};
+			var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+			var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+			Parse.initialize(parseAPPID, parseJSID);
 			var currentUser = Parse.User.current();
 			if (currentUser) {
 					if(currentUser.get("backgroundChoice")=== 2)    // do stuff with the user
@@ -70,9 +73,6 @@
 			}
 		 $('#Post_Button').click(function(e){
 		 		e.preventDefault();
-		 		var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
-				var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
-				Parse.initialize(parseAPPID, parseJSID);
 				var Essays = Parse.Object.extend("Essays");
 				var essays = new Essays();
 		 		var params = parseQueryString(queryString);

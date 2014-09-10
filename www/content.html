@@ -208,6 +208,15 @@
 							});
 							console.log('5');
 							}
+							object.fetch({
+							  success: function(myObject) {
+							    // The object was refreshed successfully.
+							  },
+							  error: function(myObject, error) {
+							    // The object was not refreshed successfully.
+							    // error is a Parse.Error with an error code and message.
+							  }
+							});
 						}
 			},
 			error: function(error) {

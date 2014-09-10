@@ -5,6 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">  
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 	</head>
 	<body id = "MyElement" class = "bewbs1">
 		<!--<ul class = "TopBar">
@@ -53,8 +54,13 @@
 		</table>
 		<script src="js/bootstrap.min.js"></script>
 		<script>
-			var currentUser = Parse.User.current();
-			if (currentUser) {
+			$(document).ready(function(){
+				var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
+				var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
+				Parse.initialize(parseAPPID, parseJSID);
+
+				var currentUser = Parse.User.current();
+				if (currentUser) {
 					if(currentUser.get("backgroundChoice")=== 2)    // do stuff with the user
 					{	
 						document.getElementById("MyElement").className = "bewbs2";
@@ -64,7 +70,8 @@
 						document.getElementById("MyElement").className = "bewbs4";
 					}
 					    // show the signup or login page
-			}
+				}
+			});
 		</script>
 	</body>
 </html>
