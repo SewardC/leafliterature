@@ -50,7 +50,7 @@
 		Parse.initialize(parseAPPID, parseJSID);
 		var essays = Parse.Object.extend("Essays");
 		var query = new Parse.Query(essays);
-		query.equalTo("Username","erik1566");
+		query.equalTo("Identification","1");
 		query.find({
 			success: function(results){
 				for(var i = 0; i < results.length; i++){

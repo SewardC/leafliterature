@@ -73,13 +73,25 @@
 			Parse.initialize(parseAPPID, parseJSID);
 			var essays = Parse.Object.extend("Essays");
 			var query = new Parse.Query(essays);
-			query.equalTo("Username","erik1566");
+			query.equalTo("Identification","1");
 			query.find({
 				success: function(results){
 					for(var i = 0; i < results.length; i++){
 						var object = results[i];
 						var username = object.get("Username");
-						$('body').append('<div class = "Story1"><h1 = class = "Post-Title"><a href="content.html?username='+ username +'&article_id='+object.id+ '">'+ object.get('Title') + '</a></h1><p class = "Post-essay">'+object.get("Essay").substr(0,200)+ '...' +'</p><h9 class = "post-author">'+username+'</h9><h9 class = "booooooooobs">Show Comments</h9</div>');
+						var numComment = 0;
+						if(typeof(object.get("Comment")) != "undefined")
+						{
+							var Comment = object.get('Comment');
+							console.log(object.get("Comment") + "5");
+							for(var j=0; j<object.get("Comment").length; i++)
+							{
+								numComment++;
+							}
+						}
+						else
+						{}
+						$('body').append('<div class = "Story1"><h1 = class = "Post-Title"><a href="content.html?username='+ username +'&article_id='+object.id+ '">'+ object.get('Title') + '</a></h1><p class = "Post-essay">'+object.get("Essay").substr(0,200)+ '...' +'</p><h9 class = "post-author">'+username+'        |      Show Comments: '+ numComment + '<a href="comments.html"><img src="img/speechBubble.png"/ style="width:8%; height:8%" margin-left:"10%"></a></h9></div>');
 					}
 				},
 				error: function(error) {

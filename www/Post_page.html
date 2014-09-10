@@ -40,6 +40,7 @@
 	 <script src="js/bootstrap.min.js"></script>
 	 <script type="text/javascript" src="js/parse-1.2.12.min.js"></script>
 	 <script>
+	 		/*
 			var queryString = window.location.search;
 			queryString = queryString.substring(1);
 			var parseQueryString = function( queryString ) {
@@ -56,6 +57,7 @@
 			 
 			    return params;
 			};
+			*/
 			var parseAPPID = "F5n5wBdrrgzuQznoRDr7Ac8dRhs2R68MPvlPiPki";
 			var parseJSID = "3ARPcPd7ws047AUajiGiz85uvgFHLbxzv4feLCjo";
 			Parse.initialize(parseAPPID, parseJSID);
@@ -75,10 +77,10 @@
 		 		e.preventDefault();
 				var Essays = Parse.Object.extend("Essays");
 				var essays = new Essays();
-		 		var params = parseQueryString(queryString);
-		 		essays.set("Username", params.username);
+		 		essays.set("Username", currentUser.get("username"));
 		 		essays.set("Title", $('#Title').val());
-		 		essays.set("Essay", $('#Post_Artile').val());
+		 		essays.set("Essay", $('#Post_Article').val());
+		 		essays.set("Identification", "1");
 		 		essays.save(null, {
 		 			success:function(essays){
 
@@ -87,7 +89,7 @@
 
 		 			}
 		 		});
-		 		window.location.href = "HomePage.html?username="+ params.username;
+		 		window.location.href = "HomePage.html";
 	 	});
 	 </script>
 </body>
